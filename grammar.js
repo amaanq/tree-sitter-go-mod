@@ -46,7 +46,7 @@ module.exports = grammar({
         )
       ),
 
-    _identifier: ($) => token(/[^\s,\[\]]+/),
+    _identifier: ($) => /[^\s,\[\]]+/,
 
     _string_or_ident: ($) => choice($._string_literal, $._identifier),
 
@@ -131,6 +131,6 @@ module.exports = grammar({
         "\n"
       ),
 
-    comment: ($) => seq("//", /.*/),
+    comment: ($) => token(seq("//", /.*/)),
   },
 });
